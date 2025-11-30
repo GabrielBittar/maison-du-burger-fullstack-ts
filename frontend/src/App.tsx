@@ -1,7 +1,5 @@
 const App = () => {
-  return(
-    <p>Maison-du-Burger premiers fichiers</p>
-  )
-}
+  return <p>Maison-du-Burger</p>;
+};
 
 export default App;
