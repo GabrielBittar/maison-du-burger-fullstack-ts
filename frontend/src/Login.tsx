@@ -24,7 +24,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="w-full cursor-pointer rounded-md bg-[#C92A0E] py-2 text-sm font-bold text-white">
-          Login
+          Se Connecter
         </button>
       </div>
     </form>
