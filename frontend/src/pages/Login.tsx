@@ -1,5 +1,6 @@
 import { use, useState } from "react";
 import Input from "../components/Input";
+import { Link } from "react-router";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,9 @@ const Login = () => {
       className="flex h-screen items-center justify-center bg-[#161410]"
     >
       <div className="flex flex-col items-center justify-center gap-2">
-        <img src="./provisory-logo.png" alt="" className="mb-4" />
+        <Link to="/">
+          <img src="./provisory-logo.png" alt="" className="mb-4" />
+        </Link>
         <Input
           placeholder="E-mail"
           onChange={(e) => setEmail(e.target.value)}
