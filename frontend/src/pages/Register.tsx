@@ -45,7 +45,7 @@ const Register = () => {
           onChange={(e) => setPostalCode(e.target.value)}
         ></Input>
         <button className="w-full cursor-pointer rounded-md bg-[#C92A0E] py-2 text-sm font-bold text-white">
-          Se Connecter
+          S'inscrire
         </button>
       </div>
     </form>
