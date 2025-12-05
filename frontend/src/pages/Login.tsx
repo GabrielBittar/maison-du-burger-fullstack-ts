@@ -27,8 +27,12 @@ const Login = () => {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button title="Se Connecter" variant="default" />
-        <Button title="Créer un compte" variant="outline" />
+        <Link to="/login" className="w-full">
+          <Button title="Se Connecter" variant="default" />
+        </Link>
+        <Link to="/register" className="w-full">
+          <Button title="Créer un compte" variant="outline" />
+        </Link>
       </div>
     </form>
   );

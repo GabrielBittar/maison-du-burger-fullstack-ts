@@ -46,7 +46,9 @@ const Register = () => {
           onChange={(e) => setPostalCode(e.target.value)}
         ></Input>
         <Button title="S'inscrire" />
-        <Button title="J'ai déjà un compte" variant="outline" />
+        <Link to="/login" className="w-full">
+          <Button title="J'ai déjà un compte" variant="outline" />
+        </Link>
       </div>
     </form>
   );
