@@ -2,7 +2,6 @@ import { use, useState } from "react";
 import Input from "../components/Input";
 import { Link } from "react-router";
 import Button from "../components/Button";
-import Login from "./Login";
 
 const Register = () => {
   const [name, setName] = useState("");
