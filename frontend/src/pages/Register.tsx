@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import Input from "../components/Input";
 import { Link } from "react-router";
+import Button from "../components/Button";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -44,9 +45,8 @@ const Register = () => {
           type="text"
           onChange={(e) => setPostalCode(e.target.value)}
         ></Input>
-        <button className="w-full cursor-pointer rounded-md bg-[#C92A0E] py-2 text-sm font-bold text-white">
-          Se Connecter
-        </button>
+        <Button title="S'inscrire" />
+        <Button title="J'ai déjà un compte" variant="outline" />
       </div>
     </form>
   );
