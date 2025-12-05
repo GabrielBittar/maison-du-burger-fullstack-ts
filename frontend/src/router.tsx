@@ -7,7 +7,7 @@ import Orders from "./pages/Orders";
 
 const Layout = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#161410]">
       <Header />
       <Outlet />
     </div>

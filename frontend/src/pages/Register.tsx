@@ -2,6 +2,7 @@ import { use, useState } from "react";
 import Input from "../components/Input";
 import { Link } from "react-router";
 import Button from "../components/Button";
+import Login from "./Login";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -46,7 +47,9 @@ const Register = () => {
           onChange={(e) => setPostalCode(e.target.value)}
         ></Input>
         <Button title="S'inscrire" />
-        <Button title="J'ai déjà un compte" variant="outline" />
+        <Link to="/login" className="w-full">
+          <Button title="J'ai déjà un compte" variant="outline" />
+        </Link>
       </div>
     </form>
   );
