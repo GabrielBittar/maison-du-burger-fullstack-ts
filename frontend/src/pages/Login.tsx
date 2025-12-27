@@ -6,9 +6,18 @@ import Button from "../components/Button";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    console.log(data);
   }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -27,9 +36,7 @@ const Login = () => {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link to="/login" className="w-full">
-          <Button title="Se Connecter" variant="default" />
-        </Link>
+        <Button title="Se Connecter" type="submit" variant="default" />
         <Link to="/register" className="w-full">
           <Button title="Créer un compte" variant="outline" />
         </Link>

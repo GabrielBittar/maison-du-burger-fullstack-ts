@@ -1,8 +1,10 @@
 import express from "express";
 import { prisma } from "./src/db";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
