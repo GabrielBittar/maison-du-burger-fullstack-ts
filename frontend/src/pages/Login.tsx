@@ -16,6 +16,11 @@ const Login = () => {
       body: JSON.stringify({ email, password }),
     });
     try {
+      if (!email || !password) {
+        setError("Nom d'utilisateur et mot de passe requis");
+        return;
+      }
+
       switch (response.status) {
         case 200:
           setError("");
@@ -49,6 +54,7 @@ const Login = () => {
         </Link>
         <div className="mb-3 flex flex-col gap-2">
           <Input
+            type="email"
             placeholder="E-mail"
             onChange={(e) => setEmail(e.target.value)}
           />
