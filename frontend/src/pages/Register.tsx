@@ -58,25 +58,30 @@ const Register = () => {
           <img src="./provisory-logo.png" alt="" className="mx-auto mb-4" />
         </Link>
         <Input
+          value={name}
           placeholder="Nom et prénom"
           onChange={(e) => setName(e.target.value)}
         />
         <Input
+          value={email}
           placeholder="E-mail"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
+          value={password}
           placeholder="Mot de passe"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
         <Input
+          value={confirmPassword}
           placeholder="Confirmation du mot de passe"
           type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         ></Input>
         <Input
+          value={postalCode}
           placeholder="Code postal"
           type="text"
           onChange={(e) => setPostalCode(e.target.value)}
