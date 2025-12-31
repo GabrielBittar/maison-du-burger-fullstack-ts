@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { prisma } from "./src/db";
 import cors from "cors";
+import bcrypt from "bcrypt";
 
 const app = express();
 app.use(express.json());
@@ -38,6 +39,8 @@ app.post("/register", async (req: Request, res: Response) => {
       return;
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const user = await prisma.user.findFirst({
       where: {
         email: email,
@@ -52,7 +55,7 @@ app.post("/register", async (req: Request, res: Response) => {
       data: {
         name: name,
         email: email,
-        password: password,
+        password: hashedPassword,
         postalCode: postalCode,
       },
     });
