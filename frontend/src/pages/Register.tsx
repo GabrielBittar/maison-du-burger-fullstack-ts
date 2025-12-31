@@ -12,6 +12,17 @@ const Register = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password, postalCode }),
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <form
