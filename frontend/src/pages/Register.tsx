@@ -9,7 +9,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [postalCode, setPostalCode] = useState("");
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
   }
   return (
@@ -45,10 +46,12 @@ const Register = () => {
           type="text"
           onChange={(e) => setPostalCode(e.target.value)}
         ></Input>
-        <Button title="S'inscrire" />
-        <Link to="/login" className="w-full">
-          <Button title="J'ai déjà un compte" variant="outline" />
-        </Link>
+        <div className="mt-2 flex w-full flex-col gap-2">
+          <Button title="S'inscrire" type="submit" />
+          <Link to="/login" className="w-full">
+            <Button title="J'ai déjà un compte" variant="outline" />
+          </Link>
+        </div>
       </div>
     </form>
   );
