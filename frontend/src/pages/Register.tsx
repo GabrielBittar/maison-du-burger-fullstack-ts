@@ -15,6 +15,17 @@ const Register = () => {
     e.preventDefault();
 
     try {
+      if (!name || !email || !password || !postalCode) {
+        alert("Toutes les informations sont requises");
+        setError("Toutes les informations sont requises");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        setError("Les mots de passe ne correspondent pas");
+        return;
+      }
+
       const response = await fetch("http://localhost:3000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
