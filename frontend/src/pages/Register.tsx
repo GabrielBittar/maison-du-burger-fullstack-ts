@@ -54,7 +54,8 @@ const Register = () => {
           setError("");
           break;
       }
-      console.log(response);
+
+      const data = await response.json();
     } catch (error) {
       console.log(error);
     }
