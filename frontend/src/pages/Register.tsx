@@ -15,6 +15,17 @@ const Register = () => {
     e.preventDefault();
 
     try {
+      if (!name || !email || !password || !postalCode) {
+        alert("Toutes les informations sont requises");
+        setError("Toutes les informations sont requises");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        setError("Les mots de passe ne correspondent pas");
+        return;
+      }
+
       const response = await fetch("http://localhost:3000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,7 +54,8 @@ const Register = () => {
           setError("");
           break;
       }
-      console.log(response);
+
+      const data = await response.json();
     } catch (error) {
       console.log(error);
     }
@@ -58,25 +70,30 @@ const Register = () => {
           <img src="./provisory-logo.png" alt="" className="mx-auto mb-4" />
         </Link>
         <Input
+          value={name}
           placeholder="Nom et prénom"
           onChange={(e) => setName(e.target.value)}
         />
         <Input
+          value={email}
           placeholder="E-mail"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
+          value={password}
           placeholder="Mot de passe"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
         <Input
+          value={confirmPassword}
           placeholder="Confirmation du mot de passe"
           type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         ></Input>
         <Input
+          value={postalCode}
           placeholder="Code postal"
           type="text"
           onChange={(e) => setPostalCode(e.target.value)}
