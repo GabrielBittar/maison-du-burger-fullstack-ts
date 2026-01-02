@@ -2,11 +2,14 @@ import { use, useState } from "react";
 import Input from "../components/Input";
 import { Link } from "react-router";
 import Button from "../components/Button";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,6 +28,7 @@ const Login = () => {
         case 200:
           setError("");
           const data = await response.json();
+          navigate("/");
           console.log(data);
           break;
         case 400:
