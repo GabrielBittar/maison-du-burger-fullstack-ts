@@ -16,14 +16,27 @@ app.post("/login", async (req: Request, res: Response) => {
     }
 
     const user = await prisma.user.findFirst({
-      where: { email, password },
+      where: { email },
     });
 
     if (!user) {
       res.status(404).json({ message: "User not found." });
+      return;
     }
 
-    res.status(200).json(user);
+    const match = await bcrypt.compare(password, user?.password);
+
+    if (!match) {
+      res.status(401).json({ message: "User not found" });
+      return;
+    }
+
+    res.status(200).json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      postalCode: user.postalCode,
+    });
   } catch (error) {
     res.status(500).json({ message: "Server error." });
     return;

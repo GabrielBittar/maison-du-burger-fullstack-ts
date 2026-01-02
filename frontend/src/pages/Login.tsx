@@ -30,8 +30,14 @@ const Login = () => {
         case 400:
           setError("Nom d'utilisateur et mot de passe requis");
           break;
+        case 401:
+          setError("Identifiants invalides");
+          break;
         case 404:
           setError("Aucun utilisateur trouvé");
+          break;
+        case 500:
+          setError("Une erreur est survenue. Veuillez réessayer plus tard");
           break;
         default:
           setError("Une erreur est survenue. Veuillez réessayer plus tard");
