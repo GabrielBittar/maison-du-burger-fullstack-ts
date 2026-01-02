@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { prisma } from "./src/db";
 import cors from "cors";
+import bcrypt from "bcrypt";
 
 const app = express();
 app.use(express.json());
@@ -15,14 +16,27 @@ app.post("/login", async (req: Request, res: Response) => {
     }
 
     const user = await prisma.user.findFirst({
-      where: { email, password },
+      where: { email },
     });
 
     if (!user) {
       res.status(404).json({ message: "User not found." });
+      return;
     }
 
-    res.status(200).json(user);
+    const match = await bcrypt.compare(password, user?.password);
+
+    if (!match) {
+      res.status(401).json({ message: "User not found" });
+      return;
+    }
+
+    res.status(200).json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      postalCode: user.postalCode,
+    });
   } catch (error) {
     res.status(500).json({ message: "Server error." });
     return;
@@ -38,6 +52,8 @@ app.post("/register", async (req: Request, res: Response) => {
       return;
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const user = await prisma.user.findFirst({
       where: {
         email: email,
@@ -52,7 +68,7 @@ app.post("/register", async (req: Request, res: Response) => {
       data: {
         name: name,
         email: email,
-        password: password,
+        password: hashedPassword,
         postalCode: postalCode,
       },
     });
