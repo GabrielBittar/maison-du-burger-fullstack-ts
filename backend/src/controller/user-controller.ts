@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import { prisma } from "../db";
 import bcrypt from "bcrypt";
+import jsonwebtoken from "jsonwebtoken";
 
 export const login = async (req: Request, res: Response) => {
   try {
