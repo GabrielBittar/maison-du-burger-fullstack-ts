@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import { prisma } from "../db";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -8,6 +9,7 @@ export const login = async (req: Request, res: Response) => {
 
     if (!email || !password) {
       res.status(400).json({ message: "E-mail and password are required." });
+      return;
     }
 
     const user = await prisma.user.findFirst({
@@ -33,7 +35,13 @@ export const login = async (req: Request, res: Response) => {
       postalCode: user.postalCode,
     };
 
-    res.cookie("user", userInfos, { maxAge: 30000 });
+    if (!process.env.JWT_SECRET) {
+      return;
+    }
+
+    const token = jwt.sign(userInfos, process.env.JWT_SECRET);
+
+    res.cookie("user", token, { maxAge: 30000 });
 
     res.status(200).json(userInfos);
   } catch (error) {
