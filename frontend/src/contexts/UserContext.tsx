@@ -6,7 +6,7 @@ export const UserContext = createContext<UserContextType>({
   setUser: () => {},
 });
 
-export const userProvider = ({ children }: { children: ReactNode }) => {
+export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState(null);
 
   return (

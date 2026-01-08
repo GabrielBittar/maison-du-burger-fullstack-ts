@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import { Link } from "react-router";
 import Button from "../components/Button";
 import { useNavigate } from "react-router";
-import type { UserInterface } from "../types/user";
+import type { UserInterface } from "../types/User";
 
 const Login = () => {
   const [email, setEmail] = useState("");
