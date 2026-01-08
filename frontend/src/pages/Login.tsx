@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [user, setUser] = useState("");
 
   const navigate = useNavigate();
 
@@ -30,7 +31,7 @@ const Login = () => {
           setError("");
           const data = await response.json();
           navigate("/");
-          console.log(data);
+          setUser(data);
           break;
         case 400:
           setError("Nom d'utilisateur et mot de passe requis");
