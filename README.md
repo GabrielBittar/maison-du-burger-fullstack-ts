@@ -32,7 +32,7 @@ Maison du Burger is a fullstack burger shop application that can be easily used 
 
 
 ## How to start?
-@todo: insert docker infos when complete.
+Docker: at the root project directory, use: `docker compose up`, then access localhost at port 5173 on a web browser. 
 
 ##
 
@@ -44,7 +44,7 @@ Maison du Burger is a fullstack burger shop application that can be easily used 
 Maison du Burger est une application complète de commande de hamburgers qui peut être facilement utilisée [par n'importe qui](https://github.com/GabrielBittar/maison-du-burger-fullstack-ts/blob/main/LICENSE) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg). Les technologies utilisées sont: Node.JS (backend); React, hooks et Typescript (frontend); PostgreSQL (database).  
 
 ## Comment commencer ?
-@todo: insert docker infos when complete.
+Docker: à la racine du projet, utilisez: `docker compose up`, puis accédez à localhost sur le port 5173 dans um navigateur.  
 
 ##
 
@@ -56,6 +56,6 @@ Maison du Burger est une application complète de commande de hamburgers qui peu
 Maison du Burger é um aplicativo full-stack de hamburgueria que pode ser facilmente usada [por qualquer pessoa](https://github.com/GabrielBittar/maison-du-burger-fullstack-ts/blob/main/LICENSE) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg). As tecnologias utilizadas são: Node.JS (backend); React, hooks e Typescript (frontend); PostgreSQL (banco de dados).  
 
 ## Como iniciar?
-@todo: insert docker infos when complete.
+Docker: na pasta raíz do projeto, utilize: `docker compose up`, então acesse o localhost na porta 5173 em um navegador.
 
 ##
