@@ -3,11 +3,13 @@ import Input from "../components/Input";
 import { Link } from "react-router";
 import Button from "../components/Button";
 import { useNavigate } from "react-router";
+import type { UserInterface } from "../types/User";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [user, setUser] = useState<UserInterface | null>(null);
 
   const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ const Login = () => {
           setError("");
           const data = await response.json();
           navigate("/");
-          console.log(data);
+          setUser(data);
           break;
         case 400:
           setError("Nom d'utilisateur et mot de passe requis");
